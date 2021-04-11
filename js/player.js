@@ -53,7 +53,17 @@ $(function () {
             contentType: "text/plain",
             success: metadata => {
                 if (metadata && metadata.icestats && metadata.icestats.source) {
-                    let title = metadata.icestats.source.title || "...";
+                    let sources = metadata.icestats.source;
+                    if (!Array.isArray(sources)) {
+                        sources = [sources];
+                    }
+                    let source = {};
+                    sources.forEach(s => {
+                        if (s.server_type === "audio/mpeg") {
+                            source = s;
+                        }
+                    });
+                    let title = source.title || "...";
                     if (window.metadatatitle !== title) {
                         window.metadatatitle = title;
                         if (title.endsWith(" - LIVE-ON-AIR")) {
