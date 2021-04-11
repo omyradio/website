@@ -1,6 +1,6 @@
 $(function () {
-    var domain = "chat.omyradio.net";
-    var options = {
+    const domain = location.protocol + "//meet." + location.hostname;
+    const options = {
         roomName: "Omyradio",
         width: "100%",
         height: "100%",
@@ -30,5 +30,5 @@ $(function () {
             DEFAULT_BACKGROUND: '#211a0a'
         }
     }
-    var api = new JitsiMeetExternalAPI(domain, options);
+    new JitsiMeetExternalAPI(domain, options);
 });

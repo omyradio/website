@@ -14,11 +14,13 @@
 
     <script src="js/chatroom.js"></script>
     <script src="js/player.js"></script>
-    <script src="https://chat.omyradio.net/external_api.js"></script>
     <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
     <script src="https://kit.fontawesome.com/c45592b1c6.js" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+        const script = document.createElement("script");
+        script.setAttribute( "src", location.protocol + "//meet." + location.hostname + "/external_api.js");
+        document.head.appendChild(script);
         $(() => {
             show("playbtn");
             auto();
