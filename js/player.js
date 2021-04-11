@@ -1,8 +1,7 @@
 const player = new Howl({
     format: ["mp3"],
     html5: true,
-    src: [location.protocol + "//" + location.hostname + ":8000/stream"],
-    // src: ["https://staging.omyradio.net/stream"],
+    src: [location.protocol + "//stream." + location.hostname + "/stream-mp3"],
     onplay: () => show("stopbtn"),
     onstop: () =>  show("playbtn"),
     onloaderror: onerror,
@@ -50,7 +49,7 @@ $(function () {
     setInterval(() => {
         $.ajax({
             type: "GET",
-            url: location.protocol + "//" + location.hostname + ":8000/status-json.xsl",
+            url: location.protocol + "//stream." + location.hostname + "/status-json.xsl",
             contentType: "text/plain",
             success: metadata => {
                 if (metadata && metadata.icestats && metadata.icestats.source) {
