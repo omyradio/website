@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="h-100 m-0" xmlns="http://www.w3.org/1999/xhtml" lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+
+    <title>OUTTA MI YARD RADIO - Roots and culture</title>
+    <link rel="icon" href="img/omyradio-thumb.png">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/omy.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.js"></script>
+
+    <script src="js/chatroom.js"></script>
+    <script src="js/player.js"></script>
+    <script src="https://chat.omyradio.net/external_api.js"></script>
+    <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
+    <script src="https://kit.fontawesome.com/c45592b1c6.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(() => {
+            show("playbtn");
+            auto();
+        });
+    </script>
+</head>
+
+<body class="m-1 omyTitleBarBg" style="text-align: center; height: 99%">
+<div class="w-100 h-100 container-fluid">
+    <div class="row fixed-top p-2">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <div class="row" style="text-align: left">
+                        <div class="col-2">
+                            <div class="ms-2 float-start">
+                                <i id="playbtn" class="fas fa-play fa-3x px-1 playerbtn" title="Play" onclick="play()"></i>
+                                <i id="stopbtn" class="fas fa-stop fa-3x px-1 playerbtn" title="Stop" onclick="stop()"></i>
+                                <span id="loadingspinner" class="spinner-border omyDarkRed"/>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div id="title" class="col-12">
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="row">
+                                <div class="col-12 omyAltLight live">
+                                    LIVE
+                                </div>
+                                <div class="col-12 omyYellow auto">
+                                    LIVE
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 omyAltLight auto">
+                                    AUTO
+                                </div>
+                                <div class="col-12 omyYellow live">
+                                    AUTO
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center" style="margin-top: -3px">
+                        <img src="img/omyradio-banner.png" height="80">
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-1">
+                    <a data-bs-toggle="collapse" data-bs-target="#calendar" role="button" aria-expanded="false"
+                       aria-controls="calendar">
+                        <i class="px-4 fas fa-calendar-alt fa-3x px-1 icon-top" title="View schedule"
+                           aria-label="View schedule"></i>
+                    </a>
+                </div>
+                <div class="col-1">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" id="players" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="fas fa-music fa-3x px-1 icon-top" title="Open external players"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-omy omyAltTitleBarBg" aria-labelledby="players">
+                            <li>
+                                <a class="dropdown-item" href="https://tunein.com/radio/Outta-Mi-Yard-Radio-s232962/"
+                                   target="_blank">
+                                    <img class="float-end px-1" src="img/tunein.png" alt="Listen to Tunein"
+                                         width="35">
+                                    Tune in
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="https://www.liveradio.ie/stations/outta-mi-yard"
+                                   target="_blank">
+                                    <img class="float-end px-1" src="img/liveradio.png" alt="Listen to LiveRadio"
+                                         width="35">
+                                    Live radio
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="https://whooshserver.net:8721/live" target="_blank">
+                                    <i class="float-end fas fa-external-link-alt fs-3 px-1 omyAltLight"
+                                       alt="Listen in extern window"></i>
+                                    Direct stream
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row h-100" style="padding-top: 60px;">
+        <div class="col-12">
+            <div class="collapse" style="width: 100%" id="calendar">
+                <div data-tockify-component="calendar" data-tockify-calendar="omy.schedule"></div>
+            </div>
+            <div class="h-100" id="meet"></div>
+        </div>
+    </div>
+</div>
+
+</body>

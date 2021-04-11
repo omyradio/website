@@ -1,0 +1,76 @@
+@media screen and (max-device-width: 449px) {
+    body {
+        color: #f9be33;
+        background: black;
+        /*font: normal 2em/1.65em 'Hind', sans-serif;*/
+    }
+}
+
+@media screen and (min-device-width: 450px) {
+    body {
+        color: #f9be33;
+        font: normal .8em/1.65em 'Hind', sans-serif;
+        background: black;
+    }
+}
+
+.omyYellow {
+    color: #f9be33;
+}
+.omyDarkRed {
+    color: #a91810;
+}
+.omyTitleBarBg {
+    background: #160f09;
+}
+.omyMainBg {
+    background: #211a0a;
+}
+.omyAltTitleBarBg {
+    background: #3a1515;
+}
+.omyAltTitleBar {
+    color: #3a1515;
+}
+.omyAltBg {
+    background: #1a0505;
+}
+.omyAltBgLight {
+    background: #503525;
+}
+.omyAltLight {
+    color: #503525;
+}
+
+.dropdown-menu-omy {
+    background: #3a1515;
+}
+
+.dropdown-menu-omy a {
+    color: #f9be33;
+}
+
+.dropdown-menu-omy a:hover {
+    color: #f9be33;
+    background: #1a0505;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.icon-top {
+    color: #503525;
+}
+
+.icon-top:hover {
+    color: #7a5038;
+}
+
+.playerbtn {
+    color: #a91810;
+}
+
+.playerbtn:hover {
+    color: #d21d14;
+}
