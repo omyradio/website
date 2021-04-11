@@ -1,6 +1,6 @@
 $(function () {
     $.getScript(location.protocol + "//meet." + location.hostname + "/external_api.js", () => {
-        const domain = location.protocol + "//meet." + location.hostname;
+        const domain = "meet." + location.hostname;
         const options = {
             roomName: "Omyradio",
             width: "100%",
