@@ -1,26 +1,38 @@
-const player = new Howl({
-    format: ["mp3"],
-    html5: true,
-    src: [location.protocol + "//stream." + location.hostname + "/stream-mp3"],
-    onplay: () => show("stopbtn"),
-    onstop: () =>  show("playbtn"),
-    onloaderror: onerror,
-    onplayerror: onerror,
-});
+let player = null;
+
+function createPlayer() {
+    player = new Howl({
+        format: ["mp3"],
+        html5: true,
+        src: [location.protocol + "//stream." + location.hostname + "/stream-mp3"],
+        onplay: () => show("stopbtn"),
+        onstop: onstop,
+        onloaderror: onerror,
+        onplayerror: onerror,
+    });
+}
 
 function onerror(e) {
-    console.error(e);
-    player.stop();
+    console.error(e)
+    stop();
+}
+
+function onstop() {
+    show("playbtn");
+    player.unload();
 }
 
 function play() {
     show("loadingspinner");
+    createPlayer();
     player.play();
 }
 
 function stop() {
-    show("loadingspinner");
-    player.stop();
+    show("loadingspinner")
+    if (player) {
+        player.stop();
+    }
 }
 
 function show(id) {

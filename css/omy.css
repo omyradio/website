@@ -2,7 +2,6 @@
     body {
         color: #f9be33;
         background: black;
-        /*font: normal 2em/1.65em 'Hind', sans-serif;*/
     }
 }
 
@@ -67,10 +66,10 @@
     color: #7a5038;
 }
 
-.playerbtn {
+.playbtn {
     color: #a91810;
 }
 
-.playerbtn:hover {
+.playbtn:hover {
     color: #d21d14;
 }
