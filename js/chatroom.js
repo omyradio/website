@@ -29,7 +29,7 @@ $(function () {
                 DISABLE_JOIN_LEAVE_NOTIFICATIONS: true,
                 SHOW_JITSI_WATERMARK: false,
                 DEFAULT_BACKGROUND: '#211a0a',
-		DEFAULT_REMOTE_DISPLAY_NAME: 'DubHead'
+		        DEFAULT_REMOTE_DISPLAY_NAME: 'anonymous dubhead'
             }
         }
         new JitsiMeetExternalAPI(domain, options);
