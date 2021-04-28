@@ -1,4 +1,5 @@
-$(function () {
+function loadChatroom() {
+    $("#meet").empty();
     $.getScript(location.protocol + "//meet." + location.hostname + "/external_api.js", () => {
         const domain = "meet." + location.hostname;
         const options = {
@@ -29,9 +30,9 @@ $(function () {
                 DISABLE_JOIN_LEAVE_NOTIFICATIONS: true,
                 SHOW_JITSI_WATERMARK: false,
                 DEFAULT_BACKGROUND: '#211a0a',
-		        DEFAULT_REMOTE_DISPLAY_NAME: 'anonymous dubhead'
+                DEFAULT_REMOTE_DISPLAY_NAME: 'anonymous dubhead'
             }
         }
         new JitsiMeetExternalAPI(domain, options);
     });
-});
+}
