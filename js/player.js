@@ -57,37 +57,40 @@ function auto() {
     $(".live").show();
 }
 
-$(function () {
-    setInterval(() => {
-        $.ajax({
-            type: "GET",
-            url: location.protocol + "//stream." + location.hostname + "/status-json.xsl",
-            contentType: "text/plain",
-            success: metadata => {
-                if (metadata && metadata.icestats && metadata.icestats.source) {
-                    let sources = metadata.icestats.source;
-                    if (!Array.isArray(sources)) {
-                        sources = [sources];
+function status() {
+    $.ajax({
+        type: "GET",
+        url: location.protocol + "//stream." + location.hostname + "/status-json.xsl",
+        contentType: "text/plain",
+        success: metadata => {
+            if (metadata && metadata.icestats && metadata.icestats.source) {
+                let sources = metadata.icestats.source;
+                if (!Array.isArray(sources)) {
+                    sources = [sources];
+                }
+                let source = {};
+                sources.forEach(s => {
+                    if (s.server_type === "audio/mpeg") {
+                        source = s;
                     }
-                    let source = {};
-                    sources.forEach(s => {
-                        if (s.server_type === "audio/mpeg") {
-                            source = s;
-                        }
-                    });
-                    let title = source.title || "...";
-                    if (window.metadatatitle !== title) {
-                        window.metadatatitle = title;
-                        if (title.endsWith(" - LIVE-ON-AIR")) {
-                            title = title.substr(0, title.indexOf(" - LIVE-ON-AIR"));
-                            live();
-                        } else {
-                            auto();
-                        }
-                        $("#title").html(title);
+                });
+                let title = source.title || "...";
+                if (window.metadatatitle !== title) {
+                    window.metadatatitle = title;
+                    if (title.endsWith(" - LIVE-ON-AIR")) {
+                        title = title.substr(0, title.indexOf(" - LIVE-ON-AIR"));
+                        live();
+                    } else {
+                        auto();
                     }
+                    $("#title").html(title);
                 }
             }
-        });
-    }, 5000)
+        }
+    });
+}
+
+$(function () {
+    status();
+    setInterval(status, 5000)
 });
