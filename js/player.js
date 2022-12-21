@@ -78,7 +78,7 @@ function status() {
                 if (window.metadatatitle !== title) {
                     window.metadatatitle = title;
                     if (title.endsWith(" - LIVE-ON-AIR")) {
-                        title = title.substr(0, title.indexOf(" - LIVE-ON-AIR"));
+                        title = title.substring(0, title.indexOf(" - LIVE-ON-AIR"));
                         live();
                     } else {
                         auto();
