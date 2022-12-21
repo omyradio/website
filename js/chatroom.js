@@ -51,6 +51,20 @@ function loadChatroom() {
                     //    'whiteboard',
                 ],
             },
+            // Holds values related to toolbar visibility control.
+            toolbarConfig: {
+            //     // Moved from interfaceConfig.INITIAL_TOOLBAR_TIMEOUT
+            //     // The initial number of milliseconds for the toolbar buttons to be visible on screen.
+                initialTimeout: 20000,
+            //     // Moved from interfaceConfig.TOOLBAR_TIMEOUT
+            //     // Number of milliseconds for the toolbar buttons to be visible on screen.
+                timeout: 4000,
+            //     // Moved from interfaceConfig.TOOLBAR_ALWAYS_VISIBLE
+            //     // Whether toolbar should be always visible or should hide after x milliseconds.
+                alwaysVisible: false,
+            //     // Indicates whether the toolbar should still autohide when chat is open
+                autoHideWhileChatIsOpen: true,
+            },
             interfaceConfigOverwrite: {
                 MOBILE_APP_PROMO: false,
                 VERTICAL_FILMSTRIP: true,
