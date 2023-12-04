@@ -19,6 +19,7 @@
 
     <script type="text/javascript">
         $(() => {
+            enableFirefoxWarning();
             show("playbtn");
             auto();
         });
@@ -132,10 +133,19 @@
                 <div data-tockify-component="calendar" data-tockify-calendar="omy.schedule"></div>
             </div>
             <div class="h-100" id="meet">
-                <div class="row align-items-center h-100">
+                <div class="row align-items-center h-50">
                     <div class="col-12">
                         <i class="px-4 fas fa-comments fa-3x px-1 icon-top" title="Enter chatroom"
                            aria-label="Enter chatroom" onclick="loadChatroom()"></i>
+                    </div>
+                </div>
+                <div class="row align-items-center" id="firefoxwarning">
+                    <div class="col-12">
+                        You appear to be using Firefox. Note that, while the chatroom in general will work, enabling
+                        webcam will NOT work. You will be able to see yourself but others users will not see you.
+                        <br>
+                        If you want to enable your webcam in the chatroom, Chromium based browsers are known to work.
+                        Apart from Chromium itself this includes Google Chrome, Brave, Opera and many others.
                     </div>
                 </div>
             </div>

@@ -1,5 +1,7 @@
 function loadChatroom() {
     $("#meet").empty();
+    // $.getScript("https://localhost:8080/external_api.js", () => {
+    //     const domain = "localhost:8080/";
     $.getScript(location.protocol + "//meet." + location.hostname + "/external_api.js", () => {
         const domain = "meet." + location.hostname;
         const options = {
@@ -77,4 +79,12 @@ function loadChatroom() {
         }
         new JitsiMeetExternalAPI(domain, options);
     });
+}
+
+function enableFirefoxWarning() {
+    if (navigator.userAgent.includes("Firefox")) {
+        $("#firefoxwarning").show();
+    } else {
+        $("#firefoxwarning").hide();
+    }
 }
