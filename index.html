@@ -31,17 +31,27 @@
     <div class="row fixed-top p-2">
         <div class="col-12">
             <div class="row">
-                <div class="col-4">
+                <div class="col-4" aria-label="Radio player">
+                    <h2 class="d-none">Radio player</h2>
                     <div class="row" style="text-align: left">
                         <div class="col-2">
                             <div class="ms-2 float-start">
-                                <i id="playbtn" class="fas fa-play fa-3x px-1 icon-top" title="Play" onclick="play()"></i>
-                                <i id="stopbtn" class="fas fa-stop fa-3x px-1 playbtn" title="Stop" onclick="stop()"></i>
-                                <span id="loadingspinner" class="spinner-border omyDarkRed" onclick="stop()"/>
+                                <button id="playbtn" type="button" class="icon-btn" onclick="play()"
+                                        aria-label="Start radio player">
+                                    <i aria-hidden="true" class="fas fa-play fa-3x px-1 icon-top" title="Play"></i>
+                                </button>
+                                <button id="stopbtn" type="button" class="icon-btn" onclick="stop()"
+                                        aria-label="Stop radio player">
+                                    <i aria-hidden="true" class="fas fa-stop fa-3x px-1 playbtn" title="Stop"></i>
+                                </button>
+                                <button id="loadingspinner" type="button" class="icon-btn" onclick="stop()"
+                                        aria-label="Loading radio player. Click to stop">
+                                    <span class="spinner-border omyDarkRed"/>
+                                </button>
                             </div>
                         </div>
                         <div class="col-9">
-                            <div id="title" class="col-12">
+                            <div id="title" class="col-12" aria-live="polite" aria-atomic="true">
                             </div>
                         </div>
                         <div class="col-1">
@@ -66,33 +76,41 @@
                 </div>
                 <div class="col-4">
                     <div class="text-center" style="margin-top: -3px">
+                        <h1 class="d-none">OUTTA MI YARD RADIO</h1>
                         <img src="img/omyradio-banner.png" height="80">
                     </div>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-1">
+                    <h2 class="d-none">Calendar</h2>
                     <a data-bs-toggle="collapse" data-bs-target="#calendar" role="button" aria-expanded="false"
                        aria-controls="calendar">
-                        <i class="px-4 fas fa-calendar-alt fa-3x px-1 icon-top" title="View schedule"
-                           aria-label="View schedule"></i>
+                        <button type="button" class="icon-btn" aria-label="View schedule">
+                            <i aria-hidden="true" class="px-4 fas fa-calendar-alt fa-3x px-1 icon-top"
+                               title="View schedule"></i>
+                        </button>
                     </a>
                 </div>
                 <div class="col-1">
+                    <h2 class="d-none">External players</h2>
                     <div class="dropdown">
                         <a class="dropdown-toggle" href="#" id="players" data-bs-toggle="dropdown"
                            aria-expanded="false">
-                            <i class="fas fa-music fa-3x px-1 icon-top" title="Open external players"></i>
+                            <button type="button" class="icon-btn" aria-label="Open external players">
+                                <i class="fas fa-music fa-3x px-1 icon-top" title="Open external players"></i>
+                            </button>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-omy omyAltTitleBarBg" aria-labelledby="players">
-                            <li>
-                                <a class="dropdown-item" href="https://tunein.com/radio/Outta-Mi-Yard-Radio-s232962/"
+                        <ul class="dropdown-menu dropdown-menu-omy omyAltTitleBarBg" aria-labelledby="players" role="menu">
+                            <li role="menuitem">
+                                <a class="dropdown-item"
+                                   href="https://tunein.com/radio/Outta-Mi-Yard-Radio-s232962/"
                                    target="_blank">
                                     <img class="float-end px-1" src="img/tunein.png" alt="Listen to Tunein"
                                          width="35">
                                     Tune in
                                 </a>
                             </li>
-                            <li>
+                            <li role="menuitem">
                                 <a class="dropdown-item" href="https://www.liveradio.ie/stations/outta-mi-yard"
                                    target="_blank">
                                     <img class="float-end px-1" src="img/liveradio.png" alt="Listen to LiveRadio"
@@ -100,22 +118,25 @@
                                     Live radio
                                 </a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="https://stream.omyradio.net/stream-vorbis-320" target="_blank">
+                            <li role="menuitem">
+                                <a class="dropdown-item" href="https://stream.omyradio.net/stream-vorbis-320"
+                                   target="_blank">
                                     <i class="float-end fas fa-external-link-alt fs-3 px-1 omyAltLight"
                                        alt="Listen in extern window"></i>
                                     Stream (Vorbis 320kbps)
                                 </a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="https://stream.omyradio.net/stream-vorbis-128" target="_blank">
+                            <li role="menuitem">
+                                <a class="dropdown-item" href="https://stream.omyradio.net/stream-vorbis-128"
+                                   target="_blank">
                                     <i class="float-end fas fa-external-link-alt fs-3 px-1 omyAltLight"
                                        alt="Listen in extern window"></i>
                                     Stream (Vorbis 128kbps)
                                 </a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="https://stream.omyradio.net/stream-mp3" target="_blank">
+                            <li role="menuitem">
+                                <a class="dropdown-item" href="https://stream.omyradio.net/stream-mp3"
+                                   target="_blank">
                                     <i class="float-end fas fa-external-link-alt fs-3 px-1 omyAltLight"
                                        alt="Listen in extern window"></i>
                                     Stream (mp3 128kbps)
@@ -133,21 +154,24 @@
                 <div data-tockify-component="calendar" data-tockify-calendar="omy.schedule"></div>
             </div>
             <div class="h-100" id="meet">
+                <h2 class="d-none">Chatroom</h2>
                 <div class="row align-items-center h-100">
                     <div class="col-12">
-                        <i class="px-4 fas fa-comments fa-3x px-1 icon-top" title="Enter chatroom"
-                           aria-label="Enter chatroom" onclick="loadChatroom()"></i>
+                        <button type="button" class="icon-btn" aria-label="Enter chatroom" onclick="loadChatroom()">
+                            <i class="px-4 fas fa-comments fa-3x px-1 icon-top" title="Enter chatroom"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="row align-items-center" id="firefoxwarning">
-                    <div class="col-12">
-                        You appear to be using Firefox. Note that, while the chatroom in general will work, enabling
-                        webcam will NOT work. You will be able to see yourself but others users will not see you.
-                        <br>
-                        If you want to enable your webcam in the chatroom, Chromium based browsers are known to work.
-                        Apart from Chromium itself this includes Google Chrome, Brave, Opera and many others.
-                    </div>
-                </div>
+<!--                <div class="row align-items-center" id="firefoxwarning">-->
+<!--                    <div class="col-12">-->
+<!--                        You appear to be using Firefox. Note that, while the chatroom in general will work, enabling-->
+<!--                        webcam will NOT work. You will be able to see yourself but others users will not see you.-->
+<!--                        <br>-->
+<!--                        If you want to enable your webcam in the chatroom, Chromium based browsers are known to-->
+<!--                        work.-->
+<!--                        Apart from Chromium itself this includes Google Chrome, Brave, Opera and many others.-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

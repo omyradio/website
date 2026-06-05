@@ -73,3 +73,8 @@
 .playbtn:hover {
     color: #d21d14;
 }
+
+.icon-btn {
+    background-color: transparent;
+    border: none;
+}
